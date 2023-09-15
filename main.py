@@ -14,5 +14,6 @@ with open(csvoutput, 'w', newline='') as csvfile:
     writer = csv.DictWriter(csvfile, fieldnames = columnnames) 
     writer.writeheader() 
     for csvrecord in csvfiltered: 
-        writer.writerow({'Name': record['Name'], 'creditcard': record['Credit Card Number']})  
+        writer.writerow({'Name': csvrecord['Name'], 'creditcard': csvrecord['Credit Card Number']})
+
 print(f'{csvoutput} has been generated.')
