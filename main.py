@@ -5,10 +5,13 @@ from datetime import datetime
 with open('data.json', 'r') as json_file: 
     data = json.load(json_file) 
 
+#filter out data in data.json
 csvfiltered = [csvrecord for csvrecord in data if 'creditcard' in csvrecord] 
 
+#file title
 csvoutput = datetime.now().strftime('%Y%m%d') + '.csv' 
 
+#write filtered data to new created CSV file
 with open(csvoutput, 'w', newline='') as csvfile:
     columnnames = ['Name', 'Credit Card Number']  
     writer = csv.DictWriter(csvfile, fieldnames = columnnames) 
